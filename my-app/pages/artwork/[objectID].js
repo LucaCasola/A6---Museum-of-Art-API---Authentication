@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import ArtworkCardDetail  from '@/components/ArtworkCardDetail';
 
 
-export default function() {
+export default function ObjectID() {
     const router = useRouter();
     const { objectID } = router.query;
 

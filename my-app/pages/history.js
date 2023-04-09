@@ -36,14 +36,11 @@ export default function History() {
             ? (
                 <ListGroup>
                     {parsedHistory.map((historyItem, index) => (
-                        <ListGroup.Item className='styles.historyListItem' onClick={(e) => historyClicked(e,index)}>
-                            {Object.keys(historyItem).map(key => (  //list all properties of the object
-                                <> {key}: <strong>{historyItem[key]}</strong> &nbsp; </>
-                            ))}
-
-                            <Button className="float-end" variant="danger" size="sm" onClick={e => removeHistoryClicked(e, index)}>
-                                &times;
-                            </Button>
+                        <ListGroup.Item className={styles.historyListItem} key={`${index}`} action onClick={(e) => historyClicked(e, index)}>
+                            <div className="d-flex justify-content-between align-items-center">
+                                <p className='my-1'>{Object.keys(historyItem).map(key => (<>{key}: <strong>{historyItem[key]}</strong>&nbsp;</>))}</p>
+                                <Button variant="danger" onClick={(e) => removeHistoryClicked(e, index)}>Remove</Button>
+                            </div>
                         </ListGroup.Item>
                     ))}
                 </ListGroup>
